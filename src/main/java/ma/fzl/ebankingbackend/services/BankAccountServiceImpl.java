@@ -68,9 +68,20 @@ public class BankAccountServiceImpl implements BankAccountService{
 
 
     @Override
-    public List<Customer> listCustomer() {
-        return customerRepository.findAll();
-    }
+    public List<CustomerDTO> listCustomer() {
+        List<Customer> customers=  customerRepository.findAll();
+        //Functional Programming
+        List<CustomerDTO> customerDTOS = customers.stream()
+                .map(customer-> dtoMapper.fromCustomer(customer))
+                .collect(Collectors.toList());
+        //Imperative Programming
+//        List<CustomerDTO> customerDTOS = new ArrayList<>();
+//        for (Customer customer:customers){
+//            CustomerDTO customerDTO = dtoMapper.fromCustomer(customer);
+//            customerDTOS.add(customerDTO);
+//        }
+        return customerDTOS;
+   }
 
     @Override
     public BankAccount getBankAccount(String accountId) throws BankAccountNotFoundException {
