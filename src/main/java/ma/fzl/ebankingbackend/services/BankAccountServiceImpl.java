@@ -32,7 +32,7 @@ public class BankAccountServiceImpl implements BankAccountService{
         log.info("Saving bew Customer");
         Customer customer = dtoMapper.fromCustomerDTO(customerDTO);
         Customer savedCustomer = customerRepository.save(customer);
-        return savedCustomer;
+        return dtoMapper.fromCustomer(savedCustomer);
     }
 
     @Override
