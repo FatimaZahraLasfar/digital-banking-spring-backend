@@ -68,7 +68,7 @@ public class BankAccountServiceImpl implements BankAccountService{
 
 
     @Override
-    public List<Customer> ListCustomer() {
+    public List<Customer> listCustomer() {
         return customerRepository.findAll();
     }
 
@@ -115,5 +115,10 @@ public class BankAccountServiceImpl implements BankAccountService{
     public void transfer(String accountIdSource, String accountIdDestination, double amount) throws BankAccountNotFoundException, BalanceNotSufficentException {
         debit(accountIdSource , amount,"Transfer To " +accountIdDestination);
         credit(accountIdDestination,amount,"Transfer from " +accountIdSource);
+    }
+
+    @Override
+    public List<BankAccount> bankAccountsList(){
+        return bankAccountRepository.findAll();
     }
 }
