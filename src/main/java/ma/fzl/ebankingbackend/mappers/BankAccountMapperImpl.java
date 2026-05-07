@@ -18,5 +18,21 @@ public class BankAccountMapperImpl {
         BeanUtils.copyProperties(customerDTO,customer);
         return customer;
     }
+
+    public SavingBankAccountDTO fromSavingBankAccount (SavingAccount savingAccount){
+
+    }
+
+    public SavingAccount fromSavingAccountDTO (SavingBankAccountDTO savingBankAccountDTO){
+
+    }
+
+    public CurrentBankAccountDTO fromCurrentBankAccount (CurrentAccount currentAccount){
+
+    }
+
+    public CurrentAccount fromCurrentAccountDTO (CurrentBankAccountDTO currentBankAccountDTO){
+
+    }
 }
 
