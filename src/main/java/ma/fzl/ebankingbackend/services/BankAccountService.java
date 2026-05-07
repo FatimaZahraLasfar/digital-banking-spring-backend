@@ -1,5 +1,6 @@
 package ma.fzl.ebankingbackend.services;
 
+import ma.fzl.ebankingbackend.dtos.CustomerDTO;
 import ma.fzl.ebankingbackend.entities.BankAccount;
 import ma.fzl.ebankingbackend.entities.CurrentAccount;
 import ma.fzl.ebankingbackend.entities.Customer;
@@ -22,4 +23,8 @@ public interface BankAccountService {
     List<BankAccount> bankAccountsList();
 
     CustomerDTO getCustomer(Long customerId) throws CustomerNotFoundException;
+
+    CustomerDTO updateCustomer(CustomerDTO customerDTO);
+
+    void deleteCustomer(Long customerId);
 }
