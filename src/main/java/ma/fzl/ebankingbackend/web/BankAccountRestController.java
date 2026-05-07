@@ -1,0 +1,16 @@
+package ma.fzl.ebankingbackend.web;
+
+import lombok.AllArgsConstructor;
+import ma.fzl.ebankingbackend.services.BankAccountService;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class BankAccountRestController {
+    private BankAccountService bankAccountService;
+
+    public BankAccountRestController(BankAccountService bankAccountService) {
+        this.bankAccountService = bankAccountService;
+    }
+
+}
+
