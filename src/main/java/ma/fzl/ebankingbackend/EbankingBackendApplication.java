@@ -44,8 +44,15 @@ public class EbankingBackendApplication {
                     List<BankAccountDTO> bankAccounts = bankAccountService.bankAccountsList();
                     for(BankAccountDTO bankAccount:bankAccounts){
                         for (int  i=0; i<10 ; i++){
-                            bankAccountService.credit(bankAccount.getId(), 10000+Math.random()*120000,"Credit");
-                            bankAccountService.debit(bankAccount.getId(),1000+Math.random()*9000,"Debit");
+                            String accountId;
+                            if(bankAccount instanceof SavingBankAccountDTO){
+                                accountId = ((SavingBankAccountDTO) bankAccount).getId();
+                            }
+                            else{
+                                accountId = ((CurrentBankAccountDTO) bankAccount).getId();
+                            }
+                            bankAccountService.credit(accountId, 10000+Math.random()*120000,"Credit");
+                            bankAccountService.debit(accountId,1000+Math.random()*9000,"Debit");
                         }
                     }
 
