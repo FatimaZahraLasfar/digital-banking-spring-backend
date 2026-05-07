@@ -19,4 +19,9 @@ public class CustomerRestController {
     public List<CustomerDTO> customers(){
         return bankAccountService.listCustomer();
     }
+
+    @GetMapping("/customers/{id}")
+    public CustomerDTO getCustomer(@PathVariable(name="id") Long customerId){
+
+    }
 }
