@@ -11,7 +11,7 @@ import ma.fzl.ebankingbackend.exceptions.CustomerNotFoundException;
 import java.util.List;
 
 public interface BankAccountService {
-    Customer saveCustomer(Customer customer);
+    CustomerDTO saveCustomer(CustomerDTO customerDTO);
     CurrentAccount saveCurrentBankAccount(double initialBalance, double overDraft, Long customerId) throws CustomerNotFoundException;
     SavingAccount saveSavingBankAccount(double initialBalance, double interestRate, Long customerId) throws CustomerNotFoundException;
     List<Customer> listCustomer();
