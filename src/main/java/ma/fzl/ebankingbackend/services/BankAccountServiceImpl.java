@@ -2,11 +2,13 @@ package ma.fzl.ebankingbackend.services;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import ma.fzl.ebankingbackend.dtos.CustomerDTO;
 import ma.fzl.ebankingbackend.entities.*;
 import ma.fzl.ebankingbackend.enums.OperationType;
 import ma.fzl.ebankingbackend.exceptions.BalanceNotSufficentException;
 import ma.fzl.ebankingbackend.exceptions.BankAccountNotFoundException;
 import ma.fzl.ebankingbackend.exceptions.CustomerNotFoundException;
+import ma.fzl.ebankingbackend.mappers.BankAccountMapperImpl;
 import ma.fzl.ebankingbackend.repositories.AccountOperationRepository;
 import ma.fzl.ebankingbackend.repositories.BankAccountRepository;
 import ma.fzl.ebankingbackend.repositories.CustomerRepository;
@@ -17,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -26,6 +29,7 @@ public class BankAccountServiceImpl implements BankAccountService{
     private CustomerRepository customerRepository;
     private BankAccountRepository bankAccountRepository;
     private AccountOperationRepository accountOperationRepository;
+    private BankAccountMapperImpl dtoMapper;
 
     @Override
     public CustomerDTO saveCustomer(CustomerDTO customerDTO) {
@@ -139,4 +143,18 @@ public class BankAccountServiceImpl implements BankAccountService{
                 .orElseThrow(()-> new CustomerNotFoundException("Customer Not Found"));
                 return  dtoMapper.fromCustomer(customer);
     }
+
+    @Override
+    public CustomerDTO updateCustomer(CustomerDTO customerDTO) {
+        log.info("Saving bew Customer");
+        Customer customer = dtoMapper.fromCustomerDTO(customerDTO);
+        Customer savedCustomer = customerRepository.save(customer);
+        return dtoMapper.fromCustomer(savedCustomer);
+    }
+
+    @Override
+    public void deleteCustomer(Long customerId){
+        customerRepository.deleteById(customerId);
+    }
+
 }
