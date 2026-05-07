@@ -2,11 +2,11 @@ package ma.fzl.ebankingbackend.web;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import ma.fzl.ebankingbackend.dtos.CustomerDTO;
 import ma.fzl.ebankingbackend.entities.Customer;
+import ma.fzl.ebankingbackend.exceptions.CustomerNotFoundException;
 import ma.fzl.ebankingbackend.services.BankAccountService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,7 +26,16 @@ public class CustomerRestController {
     }
 
     @PostMapping("/customers")
-    public CustomerDTO saveCustomer(@RequestBody CustomerDTO request){
-
+    public CustomerDTO saveCustomer(@RequestBody CustomerDTO customerDTO){
+        return bankAccountService.saveCustomer(customerDTO);
+    }
+    @PutMapping("/customers/{customerId}")
+    public CustomerDTO updateCustomer(@PathVariable Long customerId ,@RequestBody CustomerDTO customerDTO){
+        customerDTO.setId(customerId);
+        return bankAccountService.updateCustomer(customerDTO);
+    }
+    @DeleteMapping("/customers/'{id}")
+    public void deleteCustomer(@PathVariable Long id){
+        bankAccountService.deleteCustomer(id);
     }
 }
