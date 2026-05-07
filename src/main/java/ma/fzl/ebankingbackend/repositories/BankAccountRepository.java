@@ -1,0 +1,10 @@
+package ma.fzl.ebankingbackend.repositories;
+
+import ma.fzl.ebankingbackend.entities.BankAccount;
+import ma.fzl.ebankingbackend.entities.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface BankAccountRepository extends JpaRepository <BankAccount, String> {
+}
