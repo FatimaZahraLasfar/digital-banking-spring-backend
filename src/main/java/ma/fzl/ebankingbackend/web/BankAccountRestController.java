@@ -18,7 +18,7 @@ public class BankAccountRestController {
     }
 
     @GetMapping("/accounts/{accountId}")
-    public BankAccountDTO getBankAccoun(@PathVariable String accountId) throws BankAccountNotFoundException {
+    public BankAccountDTO getBankAccount(@PathVariable String accountId) throws BankAccountNotFoundException {
         return bankAccountService.getBankAccount(accountId);
     }
 
