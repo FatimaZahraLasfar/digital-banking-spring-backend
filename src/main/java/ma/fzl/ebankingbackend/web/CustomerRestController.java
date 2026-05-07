@@ -21,7 +21,7 @@ public class CustomerRestController {
     }
 
     @GetMapping("/customers/{id}")
-    public CustomerDTO getCustomer(@PathVariable(name="id") Long customerId){
-
+    public CustomerDTO getCustomer(@PathVariable(name="id") Long customerId) throws CustomerNotFoundException {
+        return bankAccountService.getCustomer(customerId);
     }
 }
