@@ -1,6 +1,9 @@
 package ma.fzl.ebankingbackend.services;
 
+import ma.fzl.ebankingbackend.dtos.BankAccountDTO;
+import ma.fzl.ebankingbackend.dtos.CurrentBankAccountDTO;
 import ma.fzl.ebankingbackend.dtos.CustomerDTO;
+import ma.fzl.ebankingbackend.dtos.SavingBankAccountDTO;
 import ma.fzl.ebankingbackend.entities.BankAccount;
 import ma.fzl.ebankingbackend.entities.CurrentAccount;
 import ma.fzl.ebankingbackend.entities.Customer;
