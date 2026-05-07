@@ -1,5 +1,9 @@
 package ma.fzl.ebankingbackend;
 
+import ma.fzl.ebankingbackend.dtos.BankAccountDTO;
+import ma.fzl.ebankingbackend.dtos.CurrentBankAccountDTO;
+import ma.fzl.ebankingbackend.dtos.CustomerDTO;
+import ma.fzl.ebankingbackend.dtos.SavingBankAccountDTO;
 import ma.fzl.ebankingbackend.entities.*;
 import ma.fzl.ebankingbackend.enums.AccountStatus;
 import ma.fzl.ebankingbackend.enums.OperationType;
