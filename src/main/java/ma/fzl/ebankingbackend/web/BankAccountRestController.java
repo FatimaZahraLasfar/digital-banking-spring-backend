@@ -12,5 +12,14 @@ public class BankAccountRestController {
         this.bankAccountService = bankAccountService;
     }
 
+    @GetMapping("/accounts/{accountId}")
+    public BankAccountDTO getBankAccoun(@PathVariable String accountId) throws BankAccountNotFoundException {
+        return bankAccountService.getBankAccount(accountId);
+    }
+
+    @GetMapping("/accounts")
+    public List<BankAccountDTO> listAccounts(){
+        return bankAccountService.bankAccountsList();
+    }
 }
 
