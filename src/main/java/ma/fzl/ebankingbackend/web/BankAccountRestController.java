@@ -26,5 +26,10 @@ public class BankAccountRestController {
     public List<BankAccountDTO> listAccounts(){
         return bankAccountService.bankAccountsList();
     }
+
+    @GetMapping("/accounts/{accountId}/operations")
+    public List<AccountOperationDTO> getHistory (String accountId){
+        return bankAccountService.accountHistory(accountId);
+    }
 }
 
