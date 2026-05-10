@@ -292,26 +292,3 @@ Two in-memory users are configured for development in `SecurityConfig`:
 > To connect to a real database instead, replace `InMemoryUserDetailsManager` in `SecurityConfig` with a custom `UserDetailsService` that loads users from a `UserRepository`.
 
 ---
-
-## Commit History
-
-| Commit message | File(s) |
-|---|---|
-| `feat(deps): add spring-boot-starter-security and JJWT 0.11.5 dependencies` | `pom.xml` |
-| `feat(config): externalize JWT secret key and expiration to application.properties` | `application.properties` |
-| `feat(security): add SecurityConfig with stateless JWT session, CORS, and route protection` | `SecurityConfig.java` |
-| `feat(security): add JwtUtils for token generation, parsing, and validation` | `JwtUtils.java` |
-| `feat(security): add JwtAuthenticationFilter to validate Bearer tokens on every request` | `JwtAuthenticationFilter.java` |
-| `feat(dtos): add LoginRequestDTO and LoginResponseDTO for the auth endpoint` | `LoginRequestDTO.java`, `LoginResponseDTO.java` |
-| `feat(auth): add POST /auth/login endpoint returning a signed JWT on success` | `AuthController.java` |
-| `feat(dtos): add DebitDTO, CreditDTO, and TransferRequestDTO for operation endpoints` | `DebitDTO.java`, `CreditDTO.java`, `TransferRequestDTO.java` |
-| `feat(api): add debit, credit, transfer endpoints and @PreAuthorize role guards` | `BankAccountRestController.java` |
-| `feat(security): protect CustomerRestController — USER for reads, ADMIN for writes` | `CustomerRestController.java` |
-
----
-
-## Author
-
-**Fatima Zahra Lasfar** — based on the tutorial series by **Prof. Mohamed YOUSSFI**
-- Backend Part 1 & 2: DAO layer, Service layer, REST Controllers
-- Security Part: Spring Security + JWT (this branch)
